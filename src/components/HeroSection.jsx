@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
     return (
-        <section className="relative min-h-screen flex items-center overflow-hidden pt-14">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
@@ -77,8 +77,8 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-20">
-                <div className="max-w-3xl">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 flex flex-col items-center justify-center text-center">
+                <div className="max-w-4xl mx-auto">
 
                     {/* Rating Badge */}
                     <motion.div
@@ -103,7 +103,7 @@ export default function HeroSection() {
                         }}
                         className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight"
                     >
-                        Book Premium 
+                        Book Premium{" "}
                         <span className="block text-[oklch(75%_0.08_257)]">
                             Facilities Anytime
                         </span>
@@ -117,12 +117,11 @@ export default function HeroSection() {
                             duration: 0.8,
                             delay: 0.4,
                         }}
-                        className="mt-6 text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl"
+                        className="mt-6 text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl mx-auto"
                     >
                         Discover and reserve premium sports facilities with ease.
                         From football turfs and badminton courts to tennis courts
-                        and swimming lanes, SportNest helps you find the perfect
-                        venue and book it in just a few clicks.
+                        and swimming lanes.
                     </motion.p>
 
                     {/* Button */}
@@ -138,17 +137,17 @@ export default function HeroSection() {
                         <Link href="/facilities">
                             <button
                                 className="
-                px-8 py-4
-                rounded-xl
-                text-white
-                font-semibold
-                text-lg
-                bg-[oklch(44.6%_0.043_257.281)]
-                hover:scale-105
-                hover:shadow-2xl
-                transition-all
-                duration-300
-              "
+                                px-8 py-4
+                                rounded-xl
+                                text-white
+                                font-semibold
+                                text-lg
+                                bg-[oklch(44.6%_0.043_257.281)]
+                                hover:scale-105
+                                hover:shadow-2xl
+                                transition-all
+                                duration-300
+                              "
                             >
                                 Explore Facilities
                             </button>
@@ -162,7 +161,7 @@ export default function HeroSection() {
                         transition={{
                             delay: 1,
                         }}
-                        className="mt-12 grid grid-cols-3 gap-4 max-w-xl"
+                        className="mt-12 grid grid-cols-3 gap-4 max-w-xl mx-auto"
                     >
                         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10">
                             <h3 className="text-2xl font-bold text-white">500+</h3>
