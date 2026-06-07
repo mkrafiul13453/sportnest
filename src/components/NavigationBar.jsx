@@ -12,7 +12,7 @@ export default function Navbar() {
         { name: "Home", path: "/" },
         { name: "All Facilities", path: "/facilities" },
         { name: "My Bookings", path: "/my-bookings" },
-        { name: "Add Facility", path: "/add-facility" },
+        { name: "Add Facility", path: "/add-facilities" },
         { name: "Manage My Facilities", path: "/manage-facilities" },
     ];
 

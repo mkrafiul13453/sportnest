@@ -1,5 +1,4 @@
 import BookingSteps from "@/components/BookingSteps";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import PlayerReviews from "@/components/PlayerReviews";
 import SportsShowcase from "@/components/SportsShowcase";
@@ -13,7 +12,6 @@ export default function Home() {
       <SportsShowcase></SportsShowcase>
       <BookingSteps></BookingSteps>
       <PlayerReviews></PlayerReviews>
-      <Footer></Footer>
     </div>
   );
 }
