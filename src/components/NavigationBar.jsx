@@ -3,9 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Trophy } from "lucide-react";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
+    const {
+        data: session,
+    } = authClient.useSession()
+    console.log("Session Data:", session);
+    const user = session?.user;
+    console.log("Current User:", user);
+
+
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
@@ -59,18 +68,26 @@ export default function Navbar() {
                         {/* Right Side */}
                         <div className="hidden lg:flex items-center gap-4">
 
-                            <Link
-                                href="/login"
-                                className="px-5 py-2 rounded-xl border border-white/30 text-black font-medium hover:bg-white hover:text-black transition duration-300"
-                            >
-                                Login
-                            </Link>
+                            {
+                                user ? <><Button className="bg-primary text-white">Logout</Button><Link href="/profile"> <Avatar>
+                                    <Avatar.Image alt={user.name} src={user.image} />
+                                    <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                                </Avatar></Link></> :
+                                    <>
+                                        <Link
+                                            href="/login"
+                                            className="px-5 py-2 rounded-xl border border-white/30 text-black font-medium hover:bg-white hover:text-black transition duration-300"
+                                        >
+                                            Login
+                                        </Link>
 
-                            <Link
-                                href="/register"
-                            >
-                                <Button className="bg-primary text-white">Registration</Button>
-                            </Link>
+                                        <Link
+                                            href="/signup"
+                                        >
+                                            <Button className="bg-primary text-white">Registration</Button>
+                                        </Link>
+                                    </>
+                            }
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -107,17 +124,26 @@ export default function Navbar() {
                             {/* Mobile Buttons */}
                             <div className="flex flex-col gap-3 mt-5">
 
-                                <Link
-                                    href="/login"
-                                >
-                                    <Button className="bg-primary text-white" >Login</Button>
-                                </Link>
+                                {
+                                    user ? <><Button className="bg-primary text-white">Logout</Button>  <Link href="/profile"> <Avatar>
+                                        <Avatar.Image alt={user.name} src={user.image} />
+                                        <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                                    </Avatar></Link></>
+                                        :
+                                        <>
+                                            <Link
+                                                href="/login"
+                                            >
+                                                <Button className="bg-primary text-white" >Login</Button>
+                                            </Link>
 
-                                <Link
-                                    href="/register"
-                                >
-                                    <Button className="bg-primary text-white">Registration</Button>
-                                </Link>
+                                            <Link
+                                                href="/signup"
+                                            >
+                                                <Button className="bg-primary text-white">Registration</Button>
+                                            </Link>
+                                        </>
+                                }
                             </div>
                         </div>
                     )}
