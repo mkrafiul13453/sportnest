@@ -8,6 +8,18 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
+
+
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        })
+        // toast.success("Signed in with Google!");
+        // router.push("/");
+    }
+
+
+
     const router = useRouter();
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -15,15 +27,15 @@ const LoginPage = () => {
         const user = Object.fromEntries(formData.entries());
         console.log("Form Data:", user);
         // Implement your login logic here, e.g., call your API to authenticate the user
-        const {data, error} = await authClient.signIn.email({
+        const { data, error } = await authClient.signIn.email({
             email: user.email,
             password: user.password,
         });
-        if(data){
+        if (data) {
             toast.success("Logged in successfully!");
             router.push("/");
-            
-        } else if(error){
+
+        } else if (error) {
             toast.error("Failed to log in");
         }
 
@@ -111,7 +123,7 @@ const LoginPage = () => {
                 </div>
 
                 {/* Google Login */}
-                <Button
+                <Button onClick={handleGoogleSignIn}
                     variant="outline"
                     className="w-full rounded-xl border-2 hover:bg-white transition-all"
                     style={{

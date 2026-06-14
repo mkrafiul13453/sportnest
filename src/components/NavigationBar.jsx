@@ -5,7 +5,8 @@ import { useState } from "react";
 import { Menu, X, Trophy } from "lucide-react";
 import { Avatar, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
-
+import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 export default function Navbar() {
     const {
         data: session,
@@ -13,6 +14,12 @@ export default function Navbar() {
     console.log("Session Data:", session);
     const user = session?.user;
     console.log("Current User:", user);
+
+    const handleLogout = async () => {
+        await authClient.signOut();
+        toast.success("Logged out successfully!");
+        redirect("/login");
+    }
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -69,8 +76,8 @@ export default function Navbar() {
                         <div className="hidden lg:flex items-center gap-4">
 
                             {
-                                user ? <><Button className="bg-primary text-white">Logout</Button><Link href="/profile"> <Avatar>
-                                    <Avatar.Image alt={user.name} src={user.image} />
+                                user ? <><Button onClick={handleLogout} className="bg-primary text-white">Logout</Button><Link href="/profile"> <Avatar >
+                                    <Avatar.Image referrerPolicy="no-referrer" alt={user.name} src={user.image} />
                                     <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
                                 </Avatar></Link></> :
                                     <>
@@ -125,8 +132,8 @@ export default function Navbar() {
                             <div className="flex flex-col gap-3 mt-5">
 
                                 {
-                                    user ? <><Button className="bg-primary text-white">Logout</Button>  <Link href="/profile"> <Avatar>
-                                        <Avatar.Image alt={user.name} src={user.image} />
+                                    user ? <><Button onClick={handleLogout} className="bg-primary text-white">Logout</Button>  <Link href="/profile"> <Avatar>
+                                        <Avatar.Image referrerPolicy="no-referrer" alt={user.name} src={user.image} />
                                         <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
                                     </Avatar></Link></>
                                         :

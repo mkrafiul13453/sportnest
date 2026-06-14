@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const facilities = [
     {
@@ -156,10 +157,12 @@ export default function SportsShowcase() {
                                 </p>
                             </div>
 
-                            <button className="w-fit mt-6 px-6 py-3 rounded-full bg-white text-black font-medium flex items-center gap-2 hover:gap-3 transition-all">
-                                Explore Facilities
-                                <ArrowRight size={18} />
-                            </button>
+                            <Link href="/facilities">
+                                <button className="w-fit mt-6 px-6 py-3 rounded-full bg-white text-black font-medium flex items-center gap-2 hover:gap-3 transition-all">
+                                    Explore Facilities
+                                    <ArrowRight size={18} />
+                                </button>
+                            </Link>
 
                             <div className="absolute -bottom-8 -right-8 h-40 w-40 border-[20px] border-white/10 rounded-full" />
                         </motion.div>
@@ -208,15 +211,17 @@ export default function SportsShowcase() {
                             for everyone.
                         </p>
 
-                        <button
-                            className="w-fit px-6 py-3 rounded-full text-white flex items-center gap-2"
-                            style={{
-                                backgroundColor: "oklch(44.6% 0.043 257.281)",
-                            }}
-                        >
-                            Get Started
-                            <ArrowRight size={18} />
-                        </button>
+                       <Link href="/facilities">
+                            <button
+                                className="w-fit px-6 py-3 rounded-full text-white flex items-center gap-2"
+                                style={{
+                                    backgroundColor: "oklch(44.6% 0.043 257.281)",
+                                }}
+                            >
+                                Get Started
+                                <ArrowRight size={18} />
+                            </button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

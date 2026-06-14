@@ -16,12 +16,14 @@ const FacilityCard = ({ facility }) => {
         >
             {/* Image */}
             <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                    src={imageUrl}
-                    alt={facilityType}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                <Link href={`facilities/${_id}`}>
+                    <Image
+                        src={imageUrl}
+                        alt={facilityType}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                </Link>
 
                 {/* Facility Type Badge */}
                 <div
@@ -47,9 +49,9 @@ const FacilityCard = ({ facility }) => {
                 </h3>
 
                 {/* Description */}
-                <p className="mb-5 flex-1 text-lg leading-6 text-gray-600">
+                {/* <p className="mb-5 flex-1 text-lg leading-6 text-gray-600">
                     {description}
-                </p>
+                </p> */}
 
                 {/* Info Section */}
                 <div className="space-y-3">
@@ -70,18 +72,18 @@ const FacilityCard = ({ facility }) => {
                 </div>
 
                 {/* Button */}
-            
-                    <Link
-                        href={`/facilities/${_id}`}
-                        className="mt-6 flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold text-white transition-all duration-300 hover:scale-[1.02]"
-                        style={{
-                            backgroundColor: "oklch(44.6% 0.043 257.281)",
-                        }}
-                    >
-                        Book Now
-                        <ArrowRight size={18} />
-                    </Link>
-                
+
+                <Link
+                    href={`/facilities/${_id}`}
+                    className="mt-6 flex items-center justify-center gap-2 rounded-2xl px-5 py-2 font-semibold text-white transition-all duration-300 hover:scale-[1.02]"
+                    style={{
+                        backgroundColor: "oklch(44.6% 0.043 257.281)",
+                    }}
+                >
+                    Book Now
+                    <ArrowRight size={18} />
+                </Link>
+
             </div>
         </div>
     );

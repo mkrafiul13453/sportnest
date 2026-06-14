@@ -9,6 +9,15 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 
 const SignUpPage = () => {
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        })
+        // toast.success("Signed in with Google!");
+        // router.push("/");
+    }
+
+
     const handleSignUp = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -154,7 +163,7 @@ const SignUpPage = () => {
 
                 {/* Google Login */}
                 <Button
-                    // onClick={handleGoogleSignIn}
+                    onClick={handleGoogleSignIn}
                     variant="outline"
                     className="w-full rounded-xl border-2 hover:bg-white"
                     style={{

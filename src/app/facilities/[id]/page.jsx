@@ -1,11 +1,13 @@
 
+import BookingCard from "@/components/BooingCard";
 import DeleteModal from "@/components/DeleteModal";
 import { EditModal } from "@/components/EditModal";
 import { TrashBin } from "@gravity-ui/icons";
-import { Button } from "@heroui/react";
+import { Button, DateField, Label } from "@heroui/react";
 import { ArrowRight, DollarSign, Droplets, HeartPulse, Lock, MapPin, ShowerHead, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaV } from "react-icons/fa6";
 
 const FacilityDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -131,7 +133,7 @@ const FacilityDetailsPage = async ({ params }) => {
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed">
-                                {facility.description}
+                                {facility["Enter your description"]}
                             </p>
                         </div>
 
@@ -181,18 +183,7 @@ const FacilityDetailsPage = async ({ params }) => {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-8">
-                        <Link
-                            href="/booking"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-105"
-                            style={{
-                                backgroundColor: "oklch(44.6% 0.043 257.281)",
-                            }}
-                        >
-                            Book Now
-                            <ArrowRight size={18} />
-                        </Link>
-                    </div>
+                    <BookingCard facility={facility} />
                 </div>
             </div>
         </div>
