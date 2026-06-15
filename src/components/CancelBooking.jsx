@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertDialog, Button } from "@heroui/react";
-import { Trash2 } from "lucide-react";
+import { DeleteIcon, Trash2, Trash2Icon } from "lucide-react";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -28,12 +28,12 @@ export function CancelBooking({ bookingId }) {
                     <AlertDialog.Dialog className="sm:max-w-[400px]">
                         <AlertDialog.CloseTrigger />
                         <AlertDialog.Header>
-                            <AlertDialog.Icon status="danger" />
-                            <AlertDialog.Heading>Delete booking permanently?</AlertDialog.Heading>
+                            <Trash2Icon size={24} className="text-red-600" />
+                            <AlertDialog.Heading>Cancel booking permanently?</AlertDialog.Heading>
                         </AlertDialog.Header>
                         <AlertDialog.Body>
                             <p>
-                                This will permanently delete your booking and all of its
+                                This will permanently cancel your booking and all of its
                                 data. This action cannot be undone.
                             </p>
                         </AlertDialog.Body>
