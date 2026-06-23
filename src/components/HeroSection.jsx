@@ -134,23 +134,11 @@ export default function HeroSection() {
                         }}
                         className="mt-8"
                     >
-                        <Link href="/facilities">
-                            <button
-                                className="
-                                px-8 py-4
-                                rounded-xl
-                                text-white
-                                font-semibold
-                                text-lg
-                                bg-[oklch(44.6%_0.043_257.281)]
-                                hover:scale-105
-                                hover:shadow-2xl
-                                transition-all
-                                duration-300
-                              "
-                            >
-                                Explore Facilities
-                            </button>
+                        <Link
+                            href="/facilities"
+                            className="Here is your Tailwind CSS class list combined into a single line:inline-block px-8 py-4 rounded-xl text-white font-semibold text-lg bg-[oklch(44.6%_0.043_257.281)] hover:scale-105 hover:shadow-2xl transition-all duration-300"
+                        >
+                            Explore Facilities
                         </Link>
                     </motion.div>
 

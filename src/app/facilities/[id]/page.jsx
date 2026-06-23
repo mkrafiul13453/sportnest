@@ -1,21 +1,22 @@
 
-import BookingCard from "@/components/BooingCard";
+import BookingCard from "@/components/BookingCard";
 import DeleteModal from "@/components/DeleteModal";
 import { EditModal } from "@/components/EditModal";
+import { auth } from "@/lib/auth";
 import { TrashBin } from "@gravity-ui/icons";
 import { Button, DateField, Label } from "@heroui/react";
 import { ArrowRight, DollarSign, Droplets, HeartPulse, Lock, MapPin, ShowerHead, Users } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { FaV } from "react-icons/fa6";
 
 const FacilityDetailsPage = async ({ params }) => {
     const { id } = await params;
-    const res = await fetch(`http://localhost:5000/facility/${id}`,{
-        headers: {
-            authorization: "logged in"
-        }
-    });
+    // const {token}= await auth.api.getToken({
+    //     headers : await headers()
+    // })
+    const res = await fetch(`http://localhost:5000/facility/${id}`);
     const facility = await res.json();
     const amenities = [
         {
@@ -47,7 +48,7 @@ const FacilityDetailsPage = async ({ params }) => {
                 {/* Image Section */}
                 <div className="relative h-[280px] lg:h-full overflow-hidden">
                     <Image
-                        src={facility.imageUrl}
+                        src={facility.imageUrl }
                         alt={facility.facilityType}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
